@@ -10,13 +10,13 @@ def fdur(clip,frno):
     dur = frno/Fps
     return dur
 
-clip = VideoFileClip("ESample.mp4")
-crp = fx.all.crop(clip, x1=230, y1=20, x2=260, y2=40)
+clip = VideoFileClip("ESample.mp4")                                 #the video file to be opened here should already contain the code
+crp = fx.all.crop(clip, x1=230, y1=20, x2=260, y2=40)               #Crop the part where the code is present
 
-crp.save_frame("code.jpg",fdur(clip,71))
+crp.save_frame("code.jpg",fdur(clip,71))                            #Save the cropped image as "code.jpg"
 
 img = Image.open("code.jpg")
-ni = img.resize((250,150))
-ni.save("rs.jpg")
-txt = pytesseract.image_to_string(ni)
-print("Hash code =",txt)
+ni = img.resize((250,150))                                          #Enlarge the cropped image
+ni.save("rs.jpg")                                                   #Save the enlarged image as "rs.jpg"
+txt = pytesseract.image_to_string(ni)                               #Detect the text in the image
+print("Hash code =",txt)                                            #Print the text
