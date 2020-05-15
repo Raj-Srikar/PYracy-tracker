@@ -9,4 +9,4 @@ video = VideoFileClip("sample.mp4")
 txt = TextClip("Mov",fontsize=15,color='black')
 txt = txt.set_position((230,20)).set_duration(0.04)
 vid = CompositeVideoClip([video , txt.set_start(fdur(video,71))])               #Overlay the text clip onto the video
-vid.write_videofile("ESample.mp4")                                       #Create the video file, "ESaample.mp4"
+vid.write_videofile("ESample.mp4")                                              #Create the video file, "ESaample.mp4"
